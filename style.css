@@ -1,0 +1,111 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box ;
+    max-width: 380px;
+}
+
+/* Estilo del sobre */
+#envelope-container {
+    position: fixed;
+    width: 375px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ed9d9d; /* Color de fondo de la página */
+    z-index: 100;
+    transition: visibility 1s;
+}
+
+.envelope {
+    position: relative;
+    width: 375px; /* Ajusta según el tamaño de tu imagen */
+    height: 100%;
+}
+
+.part {
+    position: absolute;
+    width: 100%;
+    height: 70%; /* Ajusta según el corte de tus imágenes */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    transition: all 1.2s ease-in-out;
+}
+
+/* Asigna tus imágenes aquí */
+.top-part {
+    top: 0;
+    background-image: url('img/sobre_arriba2@300x.png');
+    z-index: 4;
+}
+
+.bottom-part {
+    bottom: -100px;
+    background-image: url('img/sobre_abajo@300x.png');
+    z-index: 3;
+}
+
+.back-part {
+    top: 0;
+    height: 100%;
+    background-color: #d1b28c; /* El color de fondo que mencionas */
+    z-index: 2;
+}
+
+/* Animaciones al hacer clic */
+.open .top-part {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.open .bottom-part {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.open .back-part {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Mostrar contenido */
+#main-content {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+#main-content.visible {
+    opacity: 1;
+}
+
+.hidden { display: none; }
+
+#open-btn {
+    position: absolute; /* Para moverlo libremente sobre el sobre */
+    top: 50%;           /* Centrado vertical */
+    left: 50%;          /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajuste perfecto al centro */
+    
+    z-index: 10;        /* ¡ESTO ES LO MÁS IMPORTANTE! Lo pone al frente de todo */
+    
+    /* Estética para que se vea llamativo */
+    padding: 15px 30px;
+    background-color: #d4af37; /* Color dorado */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+#open-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Efecto al pasar el mouse */
+    background-color: #b8962e;
+}

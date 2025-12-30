@@ -160,12 +160,23 @@ border-radius: 50px
     align-items: center;
 }
 
+.animacionactivada .anillo{
+    opacity: 100;
+    transition: 2s ease-in-out;
+}
+
 .anillo{
+    opacity: 0;
     width: 50%;
     margin-bottom: 10px;
 }
 
+.animacionactivada .textofoto {
+    opacity: 100;
+    transition: 2s ease-in-out;}
+
 .textofoto{
+    opacity: 0;
  text-align: center;
  font-size: 1.1em;
 }
